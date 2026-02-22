@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Tulip 🌷</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ffe6f0, #fff5f9);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Tulip background */
+body::before {
+    content: "🌷 🌷 🌷 🌷 🌷 🌷 🌷 🌷";
+    font-size: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.2;
+}
+
+/* Button */
+button {
+    margin-top: 200px;
+    padding: 18px 40px;
+    font-size: 22px;
+    border: none;
+    border-radius: 40px;
+    background: #ff66a3;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff3385;
+}
+
+/* Hidden content */
+.hidden {
+    display: none;
+}
+
+.content {
+    padding: 40px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Paragraph */
+p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 18px;
+    color: #b30059;
+    line-height: 1.6;
+}
+
+/* Images */
+img {
+    width: 250px;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    color: #ff4d88;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<button onclick="showContent()">Click Here For Something Special 🌷</button>
+
+<div id="mainContent" class="hidden content">
+
+    <h1 style="color:#ff1a75;">My Forever Tulip 💖</h1>
+
+    <p id="message"></p>
+
+    <br>
+
+    <img src="memory.jpg">
+    <img src="memory.jpg">
+    <img src="memory.jpg">
+
+</div>
+
+<script>
+
+/* Reveal content */
+function showContent() {
+    document.querySelector("button").style.display = "none";
+    document.getElementById("mainContent").classList.remove("hidden");
+    typeWriter();
+}
+
+/* Typewriter Effect */
+let text = "You are the softest part of my life, like tulips blooming in spring. With you, everything feels calm, warm and beautiful. No matter what happens, I will always choose you, stand by you and love you silently but deeply. 🌷💖";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+/* Floating hearts */
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
